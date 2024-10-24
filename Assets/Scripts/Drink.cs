@@ -4,10 +4,20 @@ using UnityEngine;
 
 public class Drink : MonoBehaviour
 {
+    private string teaFlavorOrdered;
+    private string[] mixInsOrdered;
+    private string[] toppingsOrdered;
+    private float steepTimeOrdered;
+
     private string teaFlavor;
     private string[] mixIns;
     private string[] toppings;
     private float steepTime;
+
+    public string TeaFlavorOrdered {get => teaFlavorOrdered; set => teaFlavorOrdered = value; }
+    public string[] MixInsOrdered {get => mixInsOrdered; set => mixInsOrdered = value; }
+    public string[] ToppingsOrdered {get => toppingsOrdered; set => toppingsOrdered = value; }
+    public float SteepTimeOrdered {get => steepTimeOrdered; set => steepTimeOrdered = value; }
 
     public string TeaFlavor {get => teaFlavor; set => teaFlavor = value; }
     public string[] MixIns {get => mixIns; set => mixIns = value; }
