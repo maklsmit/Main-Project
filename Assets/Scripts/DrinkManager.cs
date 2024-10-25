@@ -5,10 +5,10 @@ using UnityEngine;
 public class DrinkManager : MonoBehaviour
 {
     [SerializeField] GameObject drinkPrefab;
-    private string[] TeaFlavors = {"Green", "Black"};
+    private string[] TeaFlavors = {"Green", "Black", "Oolong"};
     private float[] SteepTimes = {10f, 15f, 20f, 50f, 30f}; //In seconds
-    private string[] MixInOptions = {"Strawberry Syrup", "Ice"};
-    private string[] ToppingOptions = {};
+    private string[] MixInOptions = {"Strawberry Syrup", "Milk", "Blueberry Syrup"};
+    private string[] ToppingOptions = {"Ice", "Tapioca Pearls", "Boba"};
     // Start is called before the first frame update
     void Start()
     {
@@ -21,7 +21,7 @@ public class DrinkManager : MonoBehaviour
         
     }
 
-    void CreateDrink(){
+    public void CreateDrink(){
         // Drink newDrink = new Drink(); //DON'T KEEP need to have it spawn a drink object not just a script
         Drink newDrink = Instantiate(drinkPrefab).GetComponent<Drink>();
         newDrink.TeaFlavor = TeaFlavors[Random.Range(0, TeaFlavors.Length)];
