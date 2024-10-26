@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class Drink : MonoBehaviour
 {
-    private string teaFlavorOrdered;
-    private string[] mixInsOrdered;
-    private string[] toppingsOrdered;
-    private float steepTimeOrdered;
+    [SerializeField] private string teaFlavorOrdered;
+    [SerializeField] private string[] mixInsOrdered;
+    [SerializeField] private string[] toppingsOrdered;
+    [SerializeField] private float steepTimeOrdered;
 
     private string teaFlavor;
     private string[] mixIns;

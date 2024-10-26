@@ -6,15 +6,22 @@ using UnityEngine.UI;
 
 public class CustomerBehavior : MonoBehaviour
 {
+    [SerializeField] private GameObject buttonsPanel; 
     [SerializeField] private GameObject orderButton;
     [SerializeField] private GameObject closerOrderButton;
     [SerializeField] private Transform customerEndTransform;
 
     Animator anim;
+    bool takenOrder = false;
     // Start is called before the first frame update
     void Start()
     {
         customerEndTransform = GameObject.Find("CustomerEndLoc").transform;
+        buttonsPanel = GameObject.Find("MainCanvas");
+        orderButton = buttonsPanel.transform.GetChild(0).gameObject;
+        closerOrderButton = buttonsPanel.transform.GetChild(1).gameObject;
+
+
         anim = gameObject.GetComponent<Animator>(); 
     }
 
@@ -24,8 +31,9 @@ public class CustomerBehavior : MonoBehaviour
         // Make a function? that moves the character to ending pos if there's a collision stop early and make button appear when in pos??? 
         if(gameObject.transform.position.x <= customerEndTransform.position.x){
             anim.enabled = false;
-            if(!orderButton.activeSelf){
+            if(!orderButton.activeSelf && !takenOrder){
                 orderButton.SetActive(true);
+                takenOrder = true;
             }
         }
     }
