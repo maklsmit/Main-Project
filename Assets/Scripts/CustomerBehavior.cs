@@ -28,7 +28,6 @@ public class CustomerBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Make a function? that moves the character to ending pos if there's a collision stop early and make button appear when in pos??? 
         if(gameObject.transform.position.x <= customerEndTransform.position.x){
             anim.enabled = false;
             if(!orderButton.activeSelf && !takenOrder){
