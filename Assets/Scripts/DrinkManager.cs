@@ -14,7 +14,7 @@ public class DrinkManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        CreateDrink();
+        
     }
 
     // Update is called once per frame

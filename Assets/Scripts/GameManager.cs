@@ -22,18 +22,20 @@ public class GameManager : MonoBehaviour
         if(selectedObject == null){
             selectedObject = obj;
         }
-        else if(interactable(selectedObject, obj)){
-
+        else{
+            interactable(selectedObject, obj);
         }
     }
 
-    private bool interactable(GameObject selectedObject, GameObject obj){
-        if(selectedObject.GetComponent<Drink>() != null){
-            if(obj.tag == "positioner"){
-                return true;
-            }
+    private void interactable(GameObject selectedObject, GameObject obj){
+        if(selectedObject.GetComponent<Drink>() != null && obj.tag == "positioner"){
+            
         }
+        else if(selectedObject.GetComponent<Kettle>() != null && obj.GetComponent<Drink>() != null){
+            
+        }
+        else if(selectedObject.tag == "tea" && obj.GetComponent<Kettle>() != null){
 
-        return false;
+        }
     }
 }
