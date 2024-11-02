@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class CustomerBehavior : MonoBehaviour
 {
-    [SerializeField] private GameObject buttonsPanel; 
+    [SerializeField] private Transform buttonsPanel; 
     [SerializeField] private GameObject orderButton;
     [SerializeField] private GameObject closerOrderButton;
     [SerializeField] private Transform customerEndTransform;
@@ -17,7 +17,7 @@ public class CustomerBehavior : MonoBehaviour
     void Start()
     {
         customerEndTransform = GameObject.Find("CustomerEndLoc").transform;
-        buttonsPanel = GameObject.Find("MainCanvas");
+        buttonsPanel = GameObject.Find("MainCanvas").transform.GetChild(0);
         orderButton = buttonsPanel.transform.GetChild(0).gameObject;
         closerOrderButton = buttonsPanel.transform.GetChild(1).gameObject;
 
