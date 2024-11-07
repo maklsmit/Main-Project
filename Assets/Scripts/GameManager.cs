@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour
 
     private void interactable(GameObject selectedObject, GameObject obj){
         if(selectedObject.GetComponent<Drink>() != null && obj.tag == "positioner"){
-            
+            selectedObject.transform.position = obj.transform.position;
         }
         else if(selectedObject.GetComponent<Kettle>() != null && obj.GetComponent<Drink>() != null){
             
