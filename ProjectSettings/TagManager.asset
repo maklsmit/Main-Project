@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - positioner
+  - UIManager
+  - tea
   layers:
   - Default
   - TransparentFX

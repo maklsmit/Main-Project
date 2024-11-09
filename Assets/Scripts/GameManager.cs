@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
 
-    private GameObject selectedObject;
+    [SerializeField] private GameObject selectedObject;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +22,9 @@ public class GameManager : MonoBehaviour
         if(selectedObject == null){
             selectedObject = obj;
         }
+        else if(obj == null){
+            selectedObject = null;
+        }
         else{
             interactable(selectedObject, obj);
         }
@@ -32,10 +35,10 @@ public class GameManager : MonoBehaviour
             selectedObject.transform.position = obj.transform.position;
         }
         else if(selectedObject.GetComponent<Kettle>() != null && obj.GetComponent<Drink>() != null){
-            
+            selectedObject.GetComponent<Kettle>().EndSteep(obj);
         }
         else if(selectedObject.tag == "tea" && obj.GetComponent<Kettle>() != null){
-
+            obj.GetComponent<Kettle>().StartSteep(selectedObject.name);
         }
     }
 }

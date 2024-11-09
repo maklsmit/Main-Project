@@ -8,7 +8,7 @@ public class DrinkManager : MonoBehaviour
     [SerializeField] Transform drinkPreview;
 
     private string[] TeaFlavors = {"Green", "Black", "Oolong"};
-    private float[] SteepTimes = {10f, 15f, 20f, 50f, 30f}; //In seconds
+    private float[] SteepTimes = {30f, 15f, 60f}; //In seconds
     private string[] MixInOptions = {"Strawberry Syrup", "Milk", "Blueberry Syrup"};
     private string[] ToppingOptions = {"Ice", "Tapioca Pearls", "Boba"};
     // Start is called before the first frame update
