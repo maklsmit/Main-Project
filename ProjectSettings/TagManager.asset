@@ -7,6 +7,12 @@ TagManager:
   - positioner
   - UIManager
   - tea
+  - drink
+  - kettle
+  - station
+  - mixin
+  - topping
+  - preview
   layers:
   - Default
   - TransparentFX

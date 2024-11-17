@@ -37,16 +37,16 @@ public class CustomerBehavior : MonoBehaviour
         }
     }
 
-    void OnCollisionEnter2D(Collision2D collision){
-        Debug.Log(collision.transform.position.x);
-        if(collision.transform.position.x < this.transform.position.x){
-            Debug.Log("Collision");
-            // anim.Stop();
-        }
-        else{
-            // anim.Play(); 
-        }
-    }
+    // void OnCollisionEnter2D(Collision2D collision){
+    //     Debug.Log(collision.transform.position.x);
+    //     if(collision.transform.position.x < this.transform.position.x){
+    //         Debug.Log("Collision");
+    //         // anim.Stop();
+    //     }
+    //     else{
+    //         // anim.Play(); 
+    //     }
+    // }
 
     void OnTriggerEnter2D(Collider2D collider){
         Debug.Log("Entered");

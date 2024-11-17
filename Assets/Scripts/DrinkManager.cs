@@ -6,11 +6,12 @@ public class DrinkManager : MonoBehaviour
 {
     [SerializeField] GameObject drinkPrefab;
     [SerializeField] Transform drinkPreview;
+    [SerializeField] Transform mainCanvas;
 
     private string[] TeaFlavors = {"Green", "Black", "Oolong"};
     private float[] SteepTimes = {30f, 15f, 60f}; //In seconds
     private string[] MixInOptions = {"Strawberry Syrup", "Milk", "Blueberry Syrup"};
-    private string[] ToppingOptions = {"Ice", "Tapioca Pearls", "Boba"};
+    private string[] ToppingOptions = {"Ice", "Tapioca Pearls", "Boba", "Rainbow Jelly", "Foam Cheese"};
     // Start is called before the first frame update
     void Start()
     {
@@ -24,20 +25,21 @@ public class DrinkManager : MonoBehaviour
     }
 
     public void CreateDrink(){
-        // Drink newDrink = new Drink(); //DON'T KEEP need to have it spawn a drink object not just a script
-        Drink newDrink = Instantiate(drinkPrefab, drinkPreview.position, Quaternion.identity).GetComponent<Drink>();
+        GameObject drinkObj = Instantiate(drinkPrefab, drinkPreview.position, Quaternion.identity);
+        drinkObj.transform.SetParent(mainCanvas, false);
+        Drink newDrink = drinkObj.GetComponent<Drink>();
         newDrink.TeaFlavorOrdered = TeaFlavors[Random.Range(0, TeaFlavors.Length)];
 
         newDrink.SteepTimeOrdered = SteepTimes[Random.Range(0, SteepTimes.Length)];
 
-        string[] tempMixIns = new string[2];
-        tempMixIns[0] = (MixInOptions[Random.Range(0, MixInOptions.Length)]);
-        tempMixIns[1] = (MixInOptions[Random.Range(0, MixInOptions.Length)]);
-        newDrink.MixInsOrdered = tempMixIns;
+        // tempMixIns[0] = (MixInOptions[Random.Range(0, MixInOptions.Length)]);
+        // tempMixIns[1] = (MixInOptions[Random.Range(0, MixInOptions.Length)]);
+        newDrink.MixInsOrdered.Add(MixInOptions[Random.Range(0, MixInOptions.Length)]);
+        newDrink.MixInsOrdered.Add(MixInOptions[Random.Range(0, MixInOptions.Length)]);
 
-        string[] tempToppings = new string[2];
-        tempToppings[0] = (ToppingOptions[Random.Range(0, ToppingOptions.Length)]);
-        tempToppings[1] = (ToppingOptions[Random.Range(0, ToppingOptions.Length)]);
-        newDrink.ToppingsOrdered = tempToppings;
+        // tempToppings[0] = (ToppingOptions[Random.Range(0, ToppingOptions.Length)]);
+        // tempToppings[1] = ;
+        newDrink.ToppingsOrdered.Add(ToppingOptions[Random.Range(0, ToppingOptions.Length)]);
+        newDrink.ToppingsOrdered.Add(ToppingOptions[Random.Range(0, ToppingOptions.Length)]);
     }
 }
