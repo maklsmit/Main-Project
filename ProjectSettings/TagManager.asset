@@ -13,6 +13,9 @@ TagManager:
   - mixin
   - topping
   - preview
+  - adder
+  - done
+  - next
   layers:
   - Default
   - TransparentFX

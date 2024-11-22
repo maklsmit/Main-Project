@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class CustomerManager : MonoBehaviour
 {
-    [SerializeField] float spawnRate = 120; //# of seconds between each customer spawn
+    [SerializeField] float spawnRate = 60f; //# of seconds between each customer spawn
     [SerializeField] GameObject spawnPosObject;
     [SerializeField] GameObject[] customers;
 
     private Vector3 spawnPos;
+    private Queue<GameObject> customerQueue = new Queue<GameObject>();
+
+    // private GameManager gameManager;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +27,16 @@ public class CustomerManager : MonoBehaviour
     }
 
     void SpawnCustomer(){
-        Instantiate(customers[0], spawnPos, Quaternion.identity);
+        GameObject newCustomer = Instantiate(customers[0], spawnPos, Quaternion.identity);
+        customerQueue.Enqueue(newCustomer);
+        GameManager.instance.UpdateCount();
+    }
+
+    public void OrderTaken(){
+        customerQueue.Peek();
+    }
+
+    public void DequeueCustomer(){
+        Destroy(customerQueue.Dequeue());
     }
 }

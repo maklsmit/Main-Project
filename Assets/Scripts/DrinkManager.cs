@@ -9,9 +9,9 @@ public class DrinkManager : MonoBehaviour
     [SerializeField] Transform mainCanvas;
 
     private string[] TeaFlavors = {"Green", "Black", "Oolong"};
-    private float[] SteepTimes = {30f, 15f, 60f}; //In seconds
-    private string[] MixInOptions = {"Strawberry Syrup", "Milk", "Blueberry Syrup"};
-    private string[] ToppingOptions = {"Ice", "Tapioca Pearls", "Boba", "Rainbow Jelly", "Foam Cheese"};
+    private float[] SteepTimes = {30f, 15f, 45f, 60f}; //In seconds
+    private string[] MixInOptions = {"Strawberry", "Milk", "Blueberry", "Honey", "Vanilla", "Lemon"};
+    private string[] ToppingOptions = {"Ice", "Tapioca Pearls", "Boba", "Rainbow Jelly", "Cheese Foam", "Berries"};
     // Start is called before the first frame update
     void Start()
     {
@@ -41,5 +41,9 @@ public class DrinkManager : MonoBehaviour
         // tempToppings[1] = ;
         newDrink.ToppingsOrdered.Add(ToppingOptions[Random.Range(0, ToppingOptions.Length)]);
         newDrink.ToppingsOrdered.Add(ToppingOptions[Random.Range(0, ToppingOptions.Length)]);
+
+        newDrink.UpdateDrinkText();
     }
+
+    
 }

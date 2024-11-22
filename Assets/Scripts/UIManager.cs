@@ -32,4 +32,16 @@ public class UIManager : MonoBehaviour
     public void flipActiveButton(GameObject button){
         button.SetActive(!button.activeSelf);
     }
+
+    public void SetParentSteep(GameObject drink){
+        drink.transform.SetParent(steepPanel.transform, false);
+    }
+
+    public void SetParentMixIn(GameObject drink){
+        drink.transform.SetParent(mixinsPanel.transform, false);
+    }
+
+    public void SetParentTopping(GameObject drink){
+        drink.transform.SetParent(toppingsPanel.transform, false);
+    }
 }
